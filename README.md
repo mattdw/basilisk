@@ -20,7 +20,7 @@ Right now? Don't; you'll probably regret it.
 
 The idea for this project came from Chas Emerick who suggested to resource and proxy cache driven model to me.
 
-Thanks to the following for their feedback and and knowledge:
+Thanks to the following for their feedback and knowledge:
 
  * Anthony Grimes
  * Alan Malloy
