@@ -3,7 +3,8 @@
             [ring.util.response :as res]
             [clj-time.core :as time]
             clj-time.coerce
-            clj-time.format))
+            clj-time.format
+            flatland.io.core))
 
 (def rfc822 (:rfc822 clj-time.format/formatters))
 
@@ -63,9 +64,11 @@
   
   ([name processor files
     {:keys [fetch
-            timestamp]
+            timestamp
+            prep-resources]
      :or {fetch (comp io/file io/resource)
-          timestamp static-timestamp}}]
+          timestamp static-timestamp
+          prep-resources #(io/make-input-stream % {})}}]
      
      ;; A new ring handler
      (fn [{:keys [request-method
@@ -79,7 +82,9 @@
              (if (is-modified? latest
                                (get-in req [:headers "if-modified-since"]))
                ;; bundle has changed since cached, build new bundle
-               (bundle-response files processor latest)
+               (bundle-response (prep-resources files)
+                                processor
+                                latest)
                
                ;; no change, just return a 304
                (-> (res/response "")

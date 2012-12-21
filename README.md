@@ -1,13 +1,14 @@
 # basilisk
 
-A Clojure library designed to ... well, that part is up to you.
+A Clojure library for creating ring handlers that bundle together 
+static resources. 
 
 ## Usage
 
-FIXME
+Right now? Don't; you'll probably regret it.
 
 ## License
 
-Copyright © 2012 FIXME
+Copyright © 2012 Andrew Brehaut
 
 Distributed under the Eclipse Public License, the same as Clojure.

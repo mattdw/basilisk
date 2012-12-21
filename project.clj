@@ -6,4 +6,5 @@
   
   :dependencies [[org.clojure/clojure "1.4.0"]
                  [clj-time "0.4.4"]
-                 [ring/ring-core "1.1.6"]])
+                 [ring/ring-core "1.1.6"]
+                 [org.flatland/io "0.3.0"]])
